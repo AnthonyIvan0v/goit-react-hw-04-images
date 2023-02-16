@@ -30,6 +30,7 @@ const App = () => {
         setImages(prevImages => [...prevImages, ...hits]);
       } catch (error) {
         setError(error.message);
+        console.log(error);
       } finally {
         setLoading(false);
       }
