@@ -13,7 +13,6 @@ import { searchImages } from 'shared/services/image-api';
 const App = () => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
@@ -29,8 +28,7 @@ const App = () => {
         const hits = await searchImages(search, page);
         setImages(prevImages => [...prevImages, ...hits]);
       } catch (error) {
-        setError(error.message);
-        console.log(error);
+        console.log(error.message);
       } finally {
         setLoading(false);
       }
